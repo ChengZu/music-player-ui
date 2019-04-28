@@ -9,6 +9,7 @@ var Player = function() {
 	this.setOnPaused = false;
 	this.onPlay = function() {};
 	this.onPause = function() {};
+	this.onerr = function() {};
 	this.onVolume = function() {};
 	this.dom = null;
 }
@@ -96,6 +97,11 @@ Player.prototype = {
 	},
 
 	setCurrentTime: function(time) {
+		if(time < 0 || time > this.duration) {
+			time = 0;
+			this.currentTime = 0;
+			this.pause();
+		}
 		this.currentTime = time;
 		this.updatePlayerUI();
 	},
