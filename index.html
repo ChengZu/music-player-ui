@@ -9,13 +9,15 @@
 	<body>
 		<div id="container">
 			<div id="player"></div>
+			<div id="player2"></div>
 			<div id="debug">debug info<br></div>
 		</div>
 		<script type="text/javascript">
+			var debug = document.querySelector("#debug");
 			var player = new Player();
 			var paused = true;
-			var debug = document.querySelector("#debug");
 			player.init("#player", 270000);
+			
 
 			player.onPlay = function(o) {
 				console.log('onPlay ' + o.currentTime);
@@ -35,6 +37,32 @@
 				if (!paused) {
 					player.currentTime += 500;
 					player.setCurrentTime(player.currentTime);
+				}
+			},
+			500);
+			
+			var player2 = new Player();
+			var paused2 = true;
+			player2.init("#player2", 200000);
+			
+			player2.onPlay = function(o) {
+				console.log('2 onPlay ' + o.currentTime);
+				debug.innerHTML += '2 onPlay ' + Math.round(o.currentTime / 1000) + '<br>';
+				paused2 = false;
+			}
+			player2.onPause = function(o) {
+				console.log('2 onPause ' + o.currentTime);
+				debug.innerHTML += '2 onPause ' + Math.round(o.currentTime / 1000) + '<br>';
+				paused2 = true;
+			}
+			player2.onVolume = function(o) {
+				console.log('2 onVolume ' + o.volume);
+				debug.innerHTML += '2 onVolume ' + o.volume + '<br>';
+			}
+			setInterval(function() {
+				if (!paused2) {
+					player2.currentTime += 500;
+					player2.setCurrentTime(player2.currentTime);
 				}
 			},
 			500);
