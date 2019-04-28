@@ -98,12 +98,12 @@ Player.prototype = {
 
 	setCurrentTime: function(time) {
 		if(time < 0 || time > this.duration) {
-			time = 0;
 			this.currentTime = 0;
 			this.pause();
+		}else{
+			this.currentTime = time;
+			this.updatePlayerUI();
 		}
-		this.currentTime = time;
-		this.updatePlayerUI();
 	},
 
 	play: function() {
