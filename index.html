@@ -16,17 +16,17 @@
 			var debug = document.querySelector("#debug");
 			var player = new Player();
 			var paused = true;
-			player.init("#player", 270000);
+			player.init("#player", 270);
 			
 
 			player.onPlay = function(o) {
 				console.log('onPlay ' + o.currentTime);
-				debug.innerHTML += 'onPlay ' + Math.round(o.currentTime / 1000) + '<br>';
+				debug.innerHTML += 'onPlay ' + Math.round(o.currentTime) + '<br>';
 				paused = false;
 			}
 			player.onPause = function(o) {
 				console.log('onPause ' + o.currentTime);
-				debug.innerHTML += 'onPause ' + Math.round(o.currentTime / 1000) + '<br>';
+				debug.innerHTML += 'onPause ' + Math.round(o.currentTime) + '<br>';
 				paused = true;
 			}
 			player.onVolume = function(o) {
@@ -35,7 +35,7 @@
 			}
 			setInterval(function() {
 				if (!paused) {
-					player.currentTime += 500;
+					player.currentTime += 0.5;
 					player.setCurrentTime(player.currentTime);
 				}
 			},
@@ -43,16 +43,16 @@
 			
 			var player2 = new Player();
 			var paused2 = true;
-			player2.init("#player2", 200000);
+			player2.init("#player2", 200);
 			
 			player2.onPlay = function(o) {
 				console.log('2 onPlay ' + o.currentTime);
-				debug.innerHTML += '2 onPlay ' + Math.round(o.currentTime / 1000) + '<br>';
+				debug.innerHTML += '2 onPlay ' + Math.round(o.currentTime) + '<br>';
 				paused2 = false;
 			}
 			player2.onPause = function(o) {
 				console.log('2 onPause ' + o.currentTime);
-				debug.innerHTML += '2 onPause ' + Math.round(o.currentTime / 1000) + '<br>';
+				debug.innerHTML += '2 onPause ' + Math.round(o.currentTime) + '<br>';
 				paused2 = true;
 			}
 			player2.onVolume = function(o) {
@@ -61,7 +61,7 @@
 			}
 			setInterval(function() {
 				if (!paused2) {
-					player2.currentTime += 500;
+					player2.currentTime += 0.5;
 					player2.setCurrentTime(player2.currentTime);
 				}
 			},
