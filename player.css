@@ -168,81 +168,70 @@ html,body {
 	left:6px;
 }
 .player_speaker_iocn_1 {
-	width:20px;
-	height:30px;
+	width:4.5px;
+	height:6.75px;
+	border-width:0px;
 	background-color:#000;
 	position:relative;
 	float:left;
-	top:25px;
+	top:5.625px;
 	left:0px;
 }
 .player_speaker_iocn_2 {
-	width:30px;
-	height:30px;
+	width:6.75px;
+	height:6.75px;
 	padding:0px;
 	border-style:solid;
 	background-color:transparent;
-	border-width:25px 25px 25px 0px;
+	border-width:5.625px 5.625px 5.625px 0px;
 	border-color:transparent #000 transparent transparent;
 	position:relative;
 	float:left;
 	top:0px;
-	left:-31px;
+	left:-6.75px;
 }
 .player_speaker_iocn_3 {
-	width:15px;
-	height:30px;
+	width:3.375px;
+	height:6.75px;
 	background-color:#000;
 	border-width:0px 0px 0px 0px;
-	border-radius:0px 30px 30px 0;
+	border-radius:0px 6.75px 6.75px 0;
 	border-style:solid;
 	border-color:#000;
 	position:relative;
 	float:left;
-	top:25px;
-	left:-25px;
+	top:5.625px;
+	left:-5.625px;
 }
 .player_speaker_iocn_4 {
-	width:25px;
-	height:50px;
+	width:5.625px;
+	height:11.25px;
 	background-color:transparent;
-	border-width:15px 15px 15px 0px;
-	border-radius:0px 50px 50px 0;
+	border-width:3.375px 3.375px 3.375px 0px;
+	border-radius:0px 11.25px 11.25px 0;
 	border-style:solid;
 	border-color:#000;
 	position:relative;
 	float:left;
 	top:0px;
-	left:-40px;
+	left:-9px;
 }
 .player_speaker_iocn_disabled {
-	width:10px;
-	height:99px;
-	display:none;
+	width:3.375px;
+	height:22.5px;
 	background-color:#000;
 	transform:rotate(-45deg);
 	position:relative;
 	float:left;
-	top:-10px;
-	left:-80px;
+	top:-2.25px;
+	left:-18px;
 }
 .player_speaker_iocn {
-	--iconToW:18;
-	--iconToH:18;
-	--iconW:80;
-	--iconH:80;
-	--iconScaleW:calc(var(--iconToW) / var(--iconW));
-	--iconScaleH:calc(var(--iconToH) / var(--iconH));
-	--iconScaleWidth:calc(var(--iconW) * var(--iconScaleW));
-	--iconScaleHeight:calc(var(--iconH) * var(--iconScaleH));
-	width:150px;
-	height:80px;
+	width:33.75px;
+	height:18px;
 	display:inline-block;
 	position:relative;
 	float:left;
-	transform:scale(var(--iconScaleW,1),var(--iconScaleH,1));
-	top:calc(((var(--iconScaleHeight) - var(--iconH)) / 2) * 1px);
-	left:calc(((var(--iconScaleWidth) - var(--iconW)) / 1) * 1px);
 }
 .player_pop_layer {
 	display:block;
@@ -257,7 +246,5 @@ html,body {
 	left:0;
 	margin: 0;
 	z-index:99;
-	-moz-opacity:0.7;
 	opacity:.70;
-	filter:alpha(opacity=70);
 }

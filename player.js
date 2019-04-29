@@ -1,4 +1,4 @@
-var Player = function() {
+﻿var Player = function() {
 	this.paused = true;
 	this.duration = 0;
 	this.currentTime = 0;
@@ -32,8 +32,7 @@ Player.prototype = {
 	},
 
 	init: function(name, time) {
-		var html = '<div class="player_control"><div class="player_pop_layer"></div><div class="player_pop_content"><div id="player_play_ctr"><div class="player_pause"id="player_playback_pause"></div></div><div id="player_timer">0:00/0:00</div><div id="player_volume_ctr"><div id="player_volume_icon"><div class="player_speaker_iocn"><div class="player_speaker_iocn_1"></div><div class="player_speaker_iocn_2"></div><div class="player_speaker_iocn_3"></div><div class="player_speaker_iocn_4"></div><div class="player_speaker_iocn_disabled"id="player_speaker_iocn_disabled"></div></div></div><div id="player_volume"><div id="player_slider"><div id="player_volume_loaded"><div id="player_volume_pace"></div></div></div></div></div><div id="player_progress"><div id="player_slider"><div id="player_progress_loaded"><div id="player_progress_pace"></div></div></div></div></div></div>';
-
+		var html = '<div class="player_control"><div class="player_pop_layer"></div><div class="player_pop_content"><div id="player_play_ctr"><div class="player_pause"id="player_playback_pause"></div></div><div id="player_timer">0:00/0:00</div><div id="player_volume_ctr"><div id="player_volume"><div id="player_slider"><div id="player_volume_loaded"><div id="player_volume_pace"></div></div></div></div><div id="player_volume_icon"><div class="player_speaker_iocn"><div class="player_speaker_iocn_1"></div><div class="player_speaker_iocn_2"></div><div class="player_speaker_iocn_3"></div><div class="player_speaker_iocn_4"></div><div class="player_speaker_iocn_disabled"id="player_speaker_iocn_disabled"></div></div></div></div><div id="player_progress"><div id="player_slider"><div id="player_progress_loaded"><div id="player_progress_pace"></div></div></div></div></div></div>';
 		this.dom = this.$$(name);
 		this.dom.innerHTML = html;
 		if(time != undefined){
