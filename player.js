@@ -32,11 +32,14 @@ Player.prototype = {
 	},
 
 	init: function(name, time) {
-		var html = '<div class="player_control"><div id="player_play_ctr"><div class="player_pause"id="player_playback_pause"></div></div><div id="player_timer">0:00/0:00</div><div id="player_volume_ctr"><div id="player_volume_icon"><div class="player_speaker_iocn"><div class="player_speaker_iocn_1"></div><div class="player_speaker_iocn_2"></div><div class="player_speaker_iocn_3"></div><div class="player_speaker_iocn_4"></div><div class="player_speaker_iocn_disabled"id="player_speaker_iocn_disabled"></div></div></div><div id="player_volume"><div id="player_slider"><div id="player_volume_loaded"><div id="player_volume_pace"></div></div></div></div></div><div id="player_progress"><div id="player_slider"><div id="player_progress_loaded"><div id="player_progress_pace"></div></div></div></div></div>';
+		var html = '<div class="player_control"><div class="player_pop_layer"></div><div class="player_pop_content"><div id="player_play_ctr"><div class="player_pause"id="player_playback_pause"></div></div><div id="player_timer">0:00/0:00</div><div id="player_volume_ctr"><div id="player_volume_icon"><div class="player_speaker_iocn"><div class="player_speaker_iocn_1"></div><div class="player_speaker_iocn_2"></div><div class="player_speaker_iocn_3"></div><div class="player_speaker_iocn_4"></div><div class="player_speaker_iocn_disabled"id="player_speaker_iocn_disabled"></div></div></div><div id="player_volume"><div id="player_slider"><div id="player_volume_loaded"><div id="player_volume_pace"></div></div></div></div></div><div id="player_progress"><div id="player_slider"><div id="player_progress_loaded"><div id="player_progress_pace"></div></div></div></div></div></div>';
 
 		this.dom = this.$$(name);
 		this.dom.innerHTML = html;
-		this.duration = time;
+		if(time != undefined){
+			this.duration = time;
+			this.enabled();
+		}
 
 		var _that = this;
 		this.$('player_play_ctr').addEventListener("click",
@@ -93,6 +96,21 @@ Player.prototype = {
 		this.muteVolume = 100;
 		this.progressClicked = false;
 		this.volumeClicked = false;
+		this.updatePlayerUI();
+	},
+	
+	disabled: function() {
+		this.$('player_pop_layer').style.display = 'block';
+	},
+	
+	enabled: function() {
+		this.$('player_pop_layer').style.display = 'none';
+	},
+	
+	setDuration: function(time) {
+		this.reset();
+		this.duration = time;
+		this.enabled();
 		this.updatePlayerUI();
 	},
 
@@ -218,7 +236,7 @@ Player.prototype = {
 	},
 
 	updateTimerUI: function() {
-		this.$("player_timer").innerHTML = this.formatTime(Math.round(this.currentTime / 1000)) + " / " + this.formatTime(Math.round(this.duration / 1000));
+		this.$("player_timer").innerHTML = this.formatTime(Math.round(this.currentTime)) + " / " + this.formatTime(Math.round(this.duration));
 	},
 
 	updateProgressUI: function() {
